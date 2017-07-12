@@ -1,0 +1,22 @@
+#!/bin/bash
+# Script: deb-install
+# Author: Andrej Georgievski <andrej.zgeorgievski@gmail.com>
+# Created: 2 Feb 2017
+# Version: 1.1
+
+APP=$1
+sudo dpkg -i "$APP"
+
+if [ $? -ne 0 ]
+then
+	sudo apt-get install -f -y
+	sudo dpkg -i "$APP"
+fi
+if [ $? -eq 0 ]
+then
+	echo "-------------------------------------"
+	echo "Software $APP installed successfully."
+else
+	echo "----------------------------------------------------------------"
+	echo "Software $APP couldn't be installed! Try installing it manually."
+fi
