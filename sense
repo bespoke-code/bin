@@ -1,0 +1,22 @@
+#!/bin/bash
+# Author: Andrej Georgievski <andrej.zgeorgievski@gmail.com>
+# Description: A small script providing continuous temp sensor readouts in the terminal.
+clear
+SENSORS_INSTALLED=$(whereis sensors | wc -w)
+if [ $SENSORS_INSTALLED -eq 1 ]
+then
+    echo "Package 'sensors' is not installed on this PC!"
+    echo "Run your package manager to install the package, then run this script again."
+    exit
+fi
+
+clear
+while :
+do
+    clear
+    echo '|======================== SENSOR READINGS ========================|'
+    sensors
+    echo '|=================================================================|'
+    echo 'Press Ctrl+C to end script.'
+    sleep 1
+done
