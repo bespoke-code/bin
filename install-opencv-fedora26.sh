@@ -27,6 +27,7 @@ cd ~/software/
 git clone https://github.com/opencv/opencv.git
 
 cd opencv
+git checkout 3.3.0
 mkdir build && cd build
 
 
